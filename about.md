@@ -11,11 +11,11 @@ More to learn
 
 ### Contact
 
-Drops:    三好学生
+TG:       [@SINFVNCTION](https://t.me/SINFVNCTION)
 
-Twitter:  [3gstudent](https://twitter.com/3gstudent)
+Twitter:  [SINFVNCTION](https://twitter.com/sinfvnction)
 
-Github:   [3gstudent](https://github.com/3gstudent)
+Github:   [SINFVNCTION](https://github.com/3gstudent)
 
 ---
 
@@ -699,6 +699,5 @@ Github:   [3gstudent](https://github.com/3gstudent)
 - [Shell is Only the Beginning——后渗透阶段的攻防对抗( WHF2016 )](https://github.com/3gstudent/pdf/blob/master/Shell-is-Only-the-Beginning%E2%80%94%E2%80%94%E5%90%8E%E6%B8%97%E9%80%8F%E9%98%B6%E6%AE%B5%E7%9A%84%E6%94%BB%E9%98%B2%E5%AF%B9%E6%8A%97.pdf)
 
 ---
-
-![](https://raw.githubusercontent.com/3gstudent/3gstudent.github.io/master/images/QRCode.png "https://3gstudent.github.io/about/")
+ 
 
