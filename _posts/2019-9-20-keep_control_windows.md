@@ -17,11 +17,11 @@ title: 持久化后门维持-Windows篇(updating)
 
 ![0x01](https://tva1.sinaimg.cn/large/00831rSTly1gcxuu947nsj31500dmabt.jpg)
 
-![image-20200318140637169](https://tva1.sinaimg.cn/large/00831rSTly1gcy1rc9ccsj314k0lq411.jpg)
+![0x02](https://tva1.sinaimg.cn/large/00831rSTly1gcy1rc9ccsj314k0lq411.jpg)
 
 
 
-![0x02](https://tva1.sinaimg.cn/large/00831rSTly1gcxwxpnwzoj30hy0i6ab8.jpg)
+![0x03](https://tva1.sinaimg.cn/large/00831rSTly1gcxwxpnwzoj30hy0i6ab8.jpg)
 
 ```bash
 @echo off
@@ -44,7 +44,7 @@ pause&&exit
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microft\windows\currentversion\run`
 
-![0x03](https://tva1.sinaimg.cn/large/00831rSTly1gcy2iagbjuj317q0l4n3h.jpg)
+![0x04](https://tva1.sinaimg.cn/large/00831rSTly1gcy2iagbjuj317q0l4n3h.jpg)
 
 <img src="https://tva1.sinaimg.cn/large/00831rSTly1gcy2lfca5ej32ls0n617q.jpg" alt="0x04" style="zoom:150%;" />
 
