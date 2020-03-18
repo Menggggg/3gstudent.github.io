@@ -11,5 +11,5 @@ title: 后渗透-持久化维持后门Windows篇(updating)
 
 替换成我们的后门程序
 
-![image-20200318095544291](https://tva1.sinaimg.cn/large/00831rSTly1gcxui8mxltj30n20c4wh2.jpg)
+![0x01](https://tva1.sinaimg.cn/large/00831rSTly1gcxuu947nsj31500dmabt.jpg)
 
