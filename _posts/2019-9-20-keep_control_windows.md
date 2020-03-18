@@ -1,7 +1,11 @@
 ---
 layout: post
-title: 故障诊断平台在渗透测试中的应用技巧
+title: 持久化后门维持-Windows篇(updating)
 ---
+
+> 文章长期更新，用来统计收集后门维持的各种方法。
+
+
 
 ## shift后门(替换系统文件)
 
