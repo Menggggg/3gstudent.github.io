@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 后渗透-持久化维持后门Windows篇(updating)
+title: 故障诊断平台在渗透测试中的应用技巧
 ---
 
 ## shift后门(替换系统文件)
