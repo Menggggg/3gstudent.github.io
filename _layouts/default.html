@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link href="{{ site.baseurl }}/sin.ico" rel="shortcut icon">
+    <link href="{{ site.baseurl }}/plugin/fancybox/source/jquery.fancybox.css" rel="stylesheet" media="all" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
@@ -42,11 +43,27 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
+    <script src="{{ site.baseurl }}/plugin/fancybox/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="{{ site.baseurl }}/plugin/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script>
+        // 给图片添加链接
+        $(document).ready(function() {
+            $("p img").each(function() {
+                var strA = "<a id='yourid' href='" + this.src + "'></a>";
+                $(this).wrapAll(strA);
+            });
+        });
+    
+        // fancybox
+        $("#yourid").fancybox({
+                                  openEffect    : 'elastic',
+                                  closeEffect   : 'elastic',
+                              });
+    </script>
           {% include svg-icons.html %}
         </footer>
       </div>
     </div>
-
     {% include analytics.html %}
   </body>
 </html>
