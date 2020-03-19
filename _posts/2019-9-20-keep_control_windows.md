@@ -52,3 +52,4 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microft\windows\currentversion\run
 
 
 
+![](https://tva1.sinaimg.cn/large/00831rSTly1gcz5jzhx1ej30w00u0tnw.jpg)
