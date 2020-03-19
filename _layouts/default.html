@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <!-- <link href="{{ site.baseurl }}/sin.ico" rel="shortcut icon"> -->
-    <link href="{{ site.baseurl }}/plugin/fancybox/source/jquery.fancybox.css" rel="stylesheet" media="all" />
+    <link href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" rel="stylesheet" media="all" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
@@ -43,22 +43,23 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
-    <script src="{{ site.baseurl }}/plugin/fancybox/lib/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="{{ site.baseurl }}/plugin/fancybox/source/jquery.fancybox.pack.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script>
-        // 给图片添加链接
-        $(document).ready(function() {
-            $("p img").each(function() {
-                var strA = "<a id='yourid' href='" + this.src + "'></a>";
-                $(this).wrapAll(strA);
-            });
-        });
-    
-        // fancybox
-        $("#yourid").fancybox({
-                                  openEffect    : 'elastic',
-                                  closeEffect   : 'elastic',
-                              });
+      imglength = $('.post-content p').find('img').length;
+      for(i=0;i<imglength;i++){
+           obj = $(".post-content p img")[i];
+           aobj = $(obj).wrap("<a data-fancybox='gallery' no-pjax='' data-type='image' href='' id='fancybox" + i + "'></a>");
+           imghref = $(aobj).attr('src');
+           $('#fancybox' + i).attr('href',imghref);
+        }
+      $('.post-toc-menu').click(function(){
+        if($('.post-toc').hasClass('open')){
+          $('.post-toc').removeClass('open');
+        }else{
+          $('.post-toc').addClass('open');
+        }
+      });
     </script>
           {% include svg-icons.html %}
         </footer>
