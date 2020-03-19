@@ -46,21 +46,20 @@
     <script type="text/javascript" src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script type="text/javascript" src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
     <script>
-      imglength = $('.post-content p').find('img').length;
-      for(i=0;i<imglength;i++){
-           obj = $(".post-content p img")[i];
-           aobj = $(obj).wrap("<a data-fancybox='gallery' no-pjax='' data-type='image' href='' id='fancybox" + i + "'></a>");
-           imghref = $(aobj).attr('src');
-           $('#fancybox' + i).attr('href',imghref);
-        }
-      $('.post-toc-menu').click(function(){
-        if($('.post-toc').hasClass('open')){
-          $('.post-toc').removeClass('open');
-        }else{
-          $('.post-toc').addClass('open');
-        }
+      // 给图片添加链接
+      $(document).ready(function() {
+          $("p img").each(function() {
+              var strA = "<a id='yourid' href='" + this.src + "'></a>";
+              $(this).wrapAll(strA);
+          });
       });
-    </script>
+  
+      // fancybox
+      $("#yourid").fancybox({
+                                openEffect    : 'elastic',
+                                closeEffect   : 'elastic',
+                            });
+  </script>
           {% include svg-icons.html %}
         </footer>
       </div>
