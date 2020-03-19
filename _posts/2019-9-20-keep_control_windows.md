@@ -42,7 +42,9 @@ pause&&exit
 
 > 最常见的在指定键值添加一个新的键值类型为REG_SZ,数据项中添写需要运行程序的路径即可以启动，此类操作一些较为敏感容易被本地AV拦截，目前也是较为常见的一种方式。
 
-```HKEY_LOCAL_MACHINE\SOFTWARE\Microft\windows\currentversion\run```
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microft\windows\currentversion\run
+```
 
 ![0x04](https://tva1.sinaimg.cn/large/00831rSTly1gcy2iagbjuj317q0l4n3h.jpg)
 
