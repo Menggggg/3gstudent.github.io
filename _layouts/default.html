@@ -47,7 +47,7 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script>
       // 给图片添加链接
-      imglength = $('.post p').find('img').length;
+      imglength = $('.container p').find('img').length;
   for(i=0;i<imglength;i++){
        obj = $(".post-content p img")[i];
        aobj = $(obj).wrap("<a data-fancybox='gallery' no-pjax='' data-type='image' href='' id='fancybox" + i + "'></a>");
