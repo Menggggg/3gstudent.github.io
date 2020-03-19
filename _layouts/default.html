@@ -49,16 +49,10 @@
       // 给图片添加链接
       $(document).ready(function() {
           $("p img").each(function() {
-              var strA = "<a id='yourid' href='" + this.src + "'></a>";
+              var strA = "<a data-fancybox='gallery' no-pjax='' data-type='image' href='" + this.src + "' id='fancybox'></a>";
               $(this).wrapAll(strA);
           });
       });
-  
-      // fancybox
-      $("#yourid").fancybox({
-                                openEffect    : 'elastic',
-                                closeEffect   : 'elastic',
-                            });
   </script>
           {% include svg-icons.html %}
         </footer>
