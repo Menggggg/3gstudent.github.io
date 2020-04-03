@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 持久化后门维持-Windows篇(updating)
+title: 持久化后门维持-Windows篇(长期更新)
 ---
 
 > 文章长期更新，用来统计收集后门维持的各种方法。
@@ -46,10 +46,7 @@ pause&&exit
 HKEY_LOCAL_MACHINE\SOFTWARE\Microft\windows\currentversion\run
 ```
 
-![0x04](https://tva1.sinaimg.cn/large/00831rSTly1gcy2iagbjuj317q0l4n3h.jpg)
-
 <img src="https://tva1.sinaimg.cn/large/00831rSTly1gcy2lfca5ej32ls0n617q.jpg" alt="0x04" style="zoom:150%;" />
 
 
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gcz5jzhx1ej30w00u0tnw.jpg)
