@@ -48,6 +48,8 @@ h1 {
   font-size: 30px;
   a {
     color: inherit;
+    font-size: 29px;
+    font-family: monospace;
   }
 }
 
@@ -204,6 +206,7 @@ img {
   margin: -5px 0 0 0;
   color: $gray;
   font-size: 16px;
+  font-family: monospace;
 
   @include mobile {
     margin: 3px 0;
