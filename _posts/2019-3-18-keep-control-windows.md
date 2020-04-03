@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 持久化后门维持-Windows(长期更新)
+title: 持久化后门维持-Windows篇(长期更新)
 ---
 
 > 文章长期更新，用来统计收集后门维持的各种方法。
