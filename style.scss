@@ -282,6 +282,15 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
+.language-plaintext highlighter-rouge{
+  font-size: 90%;
+  color: #2e9fff;
+  background-color: rgba(255,255,255,.7);
+  white-space: nowrap;
+  border-radius: 4px;
+  padding: 0 .2em;
+
+}
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
