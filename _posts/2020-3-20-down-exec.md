@@ -123,8 +123,6 @@ bitsadmin 不像CURL WGET 这类工具那样能用来下载HTML页面。
 bitsadmin 权限问题待解决
 
 bitsadmin已经在win7 win10 win2008 不可用
-
-
 ```
 
 ---
