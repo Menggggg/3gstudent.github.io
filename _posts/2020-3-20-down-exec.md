@@ -80,7 +80,7 @@ Path:
 - 在Windows7或某些版本的Windows10上会运行失败 出现以下报错
 
   > BITSAdmin is deprecated and is not guaranteed to be available in future versions
-  >  of Windows.
+  > of Windows.
   >
   > BITSAdmin已弃用，并且不能保证在将来的Windows版本中可用。
   >
