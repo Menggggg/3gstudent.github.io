@@ -17,7 +17,7 @@ title: RougeMysql任意读取用户文件
 
 上面这句命令的意思解释一下就是 导入一个本地文件 `etc/passwd` 至 `user`表中，导入数据以` \n`换行符分割
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLYZuDXzickk8KXEQcLNsY6UnsYODNDVx5rAKgDlspPkObmZW3snIrWkQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagZo8.md.png)
 
 PS：
 
@@ -25,17 +25,17 @@ PS：
 
 `set global local_infile = 1;`
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLxS2SECwXYZcgO2TaDJnO05JdINfO2ibnGDFLicm6LtgAGAfOQHwSU0OQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagkLt.md.png)
 
 运行 `load data` 命令查看数据包
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLpJqW2YiaE62qrhaxKNST0oRZywEQ0ErMKLohS6UO6xPl0icYHMibjW1Vg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagVdf.md.jpg)
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLuhusjV6HKYvlbt6ZkwicHC9mdnicSG8ZRUDLe4ETlOno03uA6iaJLbKbQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagEeP.md.png)
 
 test文件内容
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLSicgvjABd4sLel08zr6OuBkWYvmOQx7jYQmoC9bCBcUdmE868k4uOQQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagFsI.md.png)
 
 
 
@@ -43,7 +43,7 @@ test文件内容
 
 下面我们重点看一下 请求读取文件的这个数据包
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLLPrNuFTDXCibduTZG7BsQbNvS6ticutyIZYa8fEpjHp8REMxaCCWdyww/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagmFS.md.jpg)
 
 
 
@@ -67,11 +67,11 @@ chr(len(filename) + 1) + "\x00\x00\x01\xFB" + filename
 
 Mysql 先是发送一个 `Greeting Proto` 的欢迎包
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaL4rrLw1khXibgoaicu9B0NJKQlhBcECaGibZUBotYB8B0QdLxkKvRZuk4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagKzj.md.png)
 
 紧接着就是认证流程数据包，Mysql 收到客户端发来的账号密码 进行验证并返回相应的数据包
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaL50Z7qeHav4TUjtas84iapQCNANl4LqLHqlLVUy0yp3SY0Xtt7fsNW4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagQQs.md.png)
 
 
 
@@ -79,7 +79,7 @@ Mysql 先是发送一个 `Greeting Proto` 的欢迎包
 
 Mysql 返回对应的认证包
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLvIMGWSr84wkvVF6SQATknFl21jw3egERzpia3HvDWhQ5AqPNIemIzZQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/waglyn.md.png)
 
 
 
@@ -130,23 +130,23 @@ if len(content) > 4:
 
 本地运行 poc.py
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLKSLicvp16eiax2v1uIMthreXzGyvIr7qiaIvCk0sCRaMEehsyQDyfDtmw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wag1Lq.md.png)
 
 端口也正在监听中
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLMFQsNpictkGvnjmG5fJgE1OFjFTQdrpiaBlP8crv1DC2oibLdt4LAQ1OQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wag8e0.md.png)
 
 
 
 尝试弱口令连接 Mysql
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLy7jppEWjDR5HL6zhhajpia6bapBdLT7ibiaWqszCtPpJvlaokHQfwMGTw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagGwV.md.png)
 
 
 
 读取文件成功，同时看一下数据包
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLDWYxwRDq4KeB5rVJmsqmxvJ7AwAgicAYwMEx42egjEh5cOvibonl6t4w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wagNYF.md.png)
 
 可见 **/etc/passwd** 已经读取成功，所有的数据包也都伪造成功
 
@@ -160,25 +160,25 @@ git clone https://github.com/ev0A/Mysqlist
 
 dicc.txt 是要读的文件
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLfa6uLSib42QYbZ5TQPKINkQ3ZMB5JfCtAHhauUY0GUsJO7TYibwCtVHA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/waf4C8.md.png)
 
 运行 exp_dicc.py端口 3306
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLDvzKM8qJDOUfPEPyz6LQTiaP5AqvaYwWe9SC0gHyGMzhXVbZaIBPQFA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wafNH1.md.png)
 
 尝试在Windows主机连接伪造的 Mysql服务，密码随便写
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLDSr9zbdFNVLwbIsgG4nT7t1a1Mhkj1EYiauAOuhwJKRIUyh4YnwtkJw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wafw4K.md.png)
 
 
 
 成功读取到用户文件
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLic65TEw9DusGlNrjCReIkccdBibTYuaOz3RNicSo9U0kia22KhSW41D23Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/wafNH1.md.png)
 
 查看读取的文件
 
-![img](https://mmbiz.qpic.cn/mmbiz_png/Na4mNWibvPlxbxicy4CEfFnribXAqZcPViaLTMFfj6uWqiaCPK5V9NAoUibVZ0FYGsaYpIuHy0PZsE5bDlwdXMgOjcXA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![img](https://s1.ax1x.com/2020/09/12/waftBR.md.png)
 
 
 
@@ -220,5 +220,5 @@ Reference：
 
 [5] https://mp.weixin.qq.com/s/m4I_YDn98K_A2yGAhv67Gg
 
-<img src="https://mmbiz.qpic.cn/mmbiz_gif/iczMSiaaDQ83NAPicb3wcqUUDubuibTM1beb4xgPepTjY0cxHxuyJlhscict0rthbr92gHHxXA6W5HibbVb39l7wmvyw/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img" style="zoom:80%;" />
+<img src="https://s1.ax1x.com/2020/09/12/wafYu9.md.gif" alt="img" style="zoom:80%;" />
 
