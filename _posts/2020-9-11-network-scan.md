@@ -158,7 +158,39 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 http://bugs.hacking8.com/tiquan/
 
+查看 DNS服务器 
+
 
 
 ## 查看进程
+
+可以查看进程是否有 mysql，nginx，Apache，redis等敏感服务
+
+`tasklist /svc` or `wmic process list brief`
+
+进程杀软对比工具-avlist https://github.com/gh0stkey/avList/
+
+
+
+## 服务信息
+
+`wmic service list brief` 
+
+查看是否开启DHCP或其他第三方服务
+
+
+
+## 已安装程序
+
+`wmic product get name,version`
+
+`powershell "Get-WmiObject -class Win32_Product |Select-Object -Property name,version"`
+
+查看已安装程序，判断机器作用及价值，如安装了VMware vSphere Client或者xshell,ftp等，就可以去提取账号口令了
+
+
+
+## 查看启动项
+
+`wmic startup get command,caption`
 
