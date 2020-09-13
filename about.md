@@ -14,7 +14,7 @@ More to learn
 
 ### Contact
 
-Mail：	sinfvnction@foxmail.com
+Mail：	[sinfvnction@foxmail.com](mailto:sinfvnction@foxmail.com)
 
 TG:         [@SINFVNCTION](https://t.me/SINFVNCTION)
 
@@ -24,9 +24,9 @@ Github:   [SINFVNCTION](https://github.com/3gstudent)
 
 ---
 
-### Link
+### Link	
 
-[Bibo](https://6o9.im/)    [神风](https://)   [陌航](https://wileysec.com)  [十月](http://octoberfirst.github.io/)
+[Bibo](https://secbook.info/)    [神风](https://www.cnblogs.com/wh4am1/)   [陌航](https://wileysec.com)  [十月](http://octoberfirst.github.io/)
 
 ---
 

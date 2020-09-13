@@ -158,7 +158,7 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 **提权辅助网页**（根据补丁查找exp）：
 
-[http://bugs.hacking8.com/tiquan/]("http://bugs.hacking8.com/tiquan/")
+[http://bugs.hacking8.com/tiquan/](http://bugs.hacking8.com/tiquan/)
 
 查看 DNS服务器 
 
@@ -170,7 +170,7 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 `tasklist /svc` or `wmic process list brief`
 
-进程杀软对比工具-avlist [https://github.com/gh0stkey/avList/]("https://github.com/gh0stkey/avList/")
+进程杀软对比工具-avlist [https://github.com/gh0stkey/avList/](https://github.com/gh0stkey/avList/)
 
 ---
 
