@@ -27,7 +27,7 @@ title: 后渗透-内网信息/资产收集
 
   对目前机器所处位置区域的判断，是指判断机器处于网络拓扑中的哪个区域，是在 **DMZ区、办公网，还是核心区核心DB **等位置。当然，这里的区域并不是绝对的，只是一个大概的环境，不同位置的网络环境不一样，区域的界限也不一定明显
 
-  
+---
 
 ## 存活主机检测
 
@@ -58,7 +58,7 @@ if ($LASTEXITCODE -eq 0) {
 
 ![image-20200913151326903](https://tva1.sinaimg.cn/large/007S8ZIlgy1gip1m2n2qfj312s08ewgj.jpg)
 
-
+---
 
 ## 开放端口检测
 
@@ -148,6 +148,8 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 |      873      |       rsync        |         匿名访问         |
 |   888、8888   |        宝塔        |     宝塔后门、弱口令     |
 
+---
+
 ## 系统信息
 
 `systeminfo`查看KB号
@@ -156,11 +158,11 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 **提权辅助网页**（根据补丁查找exp）：
 
-http://bugs.hacking8.com/tiquan/
+[http://bugs.hacking8.com/tiquan/]("http://bugs.hacking8.com/tiquan/")
 
 查看 DNS服务器 
 
-
+---
 
 ## 查看进程
 
@@ -168,9 +170,9 @@ http://bugs.hacking8.com/tiquan/
 
 `tasklist /svc` or `wmic process list brief`
 
-进程杀软对比工具-avlist https://github.com/gh0stkey/avList/
+进程杀软对比工具-avlist [https://github.com/gh0stkey/avList/]("https://github.com/gh0stkey/avList/")
 
-
+---
 
 ## 服务信息
 
@@ -178,7 +180,7 @@ http://bugs.hacking8.com/tiquan/
 
 查看是否开启DHCP或其他第三方服务
 
-
+---
 
 ## 已安装程序
 
@@ -188,7 +190,7 @@ http://bugs.hacking8.com/tiquan/
 
 查看已安装程序，判断机器作用及价值，如安装了VMware vSphere Client或者xshell,ftp等，就可以去提取账号口令了
 
-
+---
 
 ## 查看启动项
 
