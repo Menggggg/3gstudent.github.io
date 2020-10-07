@@ -186,7 +186,11 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 `wmic product get name,version`
 
-`powershell "Get-WmiObject -class Win32_Product |Select-Object -Property name,version"`
+```powershell
+powershell "Get-WmiObject -class Win32_Product |Select-Object -Property name,version
+```
+
+
 
 查看已安装程序，判断机器作用及价值，如安装了VMware vSphere Client或者xshell,ftp等，就可以去提取账号口令了
 
@@ -195,4 +199,10 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 ## 查看启动项
 
 `wmic startup get command,caption`
+
+这个没什么好说的，尽可能的收集信息
+
+---
+
+## 本地运行环境
 
