@@ -2,9 +2,9 @@
 
 #
 
-BUGFOR members exploit db
+APT086成员内部武器库
 
-Copyright © BUGFOR.com
+APT086 members exploit db
 
 `since 2020.10`
 
