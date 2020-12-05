@@ -4,7 +4,9 @@ layout: page
 ---
 
 <center>
-{{< img src="assets/sin.png" width="150px" height="150px">}}
+<img src="assets/sin.png" width="150px" height="150px">
+</center>
+
 
 ID：`Y4er`
 
@@ -16,5 +18,3 @@ Github：  [Y4er](http://github.com/Y4er)
 Twitter：  [Y4er](https://twitter.com/Y4er_ChaBug)
 
 学历：专科 (计应 · 在读)
-
-</center>
