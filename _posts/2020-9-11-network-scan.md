@@ -60,6 +60,10 @@ if ($LASTEXITCODE -eq 0) {
 
 ---
 
+## 本地连接信息
+
+
+
 ## 开放端口检测
 
 1.PowerShell端口扫描器：针对单个IP的多个端口的扫描
@@ -150,7 +154,7 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 ---
 
-## 系统信息
+## 补丁信息
 
 `systeminfo`查看KB号
 
@@ -164,7 +168,7 @@ foreach ($ip in 1..20) {Test-NetConnection -Port 80 -InformationLevel "Detailed"
 
 ---
 
-## 查看进程
+## 进程信息
 
 可以查看进程是否有 mysql，nginx，Apache，redis等敏感服务
 
@@ -196,7 +200,7 @@ powershell "Get-WmiObject -class Win32_Product |Select-Object -Property name,ver
 
 ---
 
-## 查看启动项
+## 启动项信息
 
 `wmic startup get command,caption`
 
@@ -206,3 +210,56 @@ powershell "Get-WmiObject -class Win32_Product |Select-Object -Property name,ver
 
 ## 本地运行环境
 
+
+
+## 端口监听信息
+
+
+
+
+
+## 计划任务
+
+
+
+## 开机时间
+
+
+
+## 在线用户
+
+
+
+## 启动项
+
+
+
+## RDP连接日志
+
+
+
+## 开机时间
+
+
+
+## 防火墙配置
+
+
+
+## 杀软信息
+
+
+
+## 回收站信息
+
+
+
+## 剪切板信息
+
+ ## 最近打开文件
+
+C:\Users\sinfvnction\AppData\Roaming\Microsoft\Windows\Recent
+
+## 软件敏感信息
+
+xftp securecrt  xshell

