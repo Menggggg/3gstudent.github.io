@@ -1,18 +1,15 @@
-title: Leaf Blog
-iconURL: assets/default-icon.png
+title: SINFVNCTION
+iconURL: assets/sin.png
 theme: jekyll-theme-leaf
 
 # for a clean URL
-permalink: :slug
+permalink: :sinfvnction
 
 social:
   twitter: _SupunKavinda
-  github: SupunKavinda
+  github: menggggg
 
 plugins:
- - jekyll-feed
- - jekyll-seo-tag
+ - 
 
 ### comments & analytics
-hyvor_talk_website_id: 14
-google_analytics: UA-NNNNNNNN-N
