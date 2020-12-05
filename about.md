@@ -7,14 +7,12 @@ layout: page
 <img src="assets/sin.png" width="150px" height="150px">
 </center>
 
+`SINFVNCTION`@[TIDE](http://tidesec.com/)
 
-ID：`Y4er`
+#RedTeam #APT #CTF
 
-团  队：[`ChaBug`](http://www.chabug.org/)
+Email：`sinfvnction[@]sdsecurity.org.cn`
 
-Email：`admin[@]chabug.org`
+TG:   [@SINFVNCTION](https://t.me/SINFVNCTION)
 
-Github：  [Y4er](http://github.com/Y4er)
-Twitter：  [Y4er](https://twitter.com/Y4er_ChaBug)
-
-学历：专科 (计应 · 在读)
+坐标：山东 · 济南
