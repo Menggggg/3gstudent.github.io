@@ -3,8 +3,18 @@ title: About
 layout: page
 ---
 
-Hey! This is the "Leaf" Jekyll theme created by <a rel="me" target="_blank" href="https://twitter.com/_SupunKavinda">Supun Kavinda</a>.
+<center>
+{{< img src="assets/sin.png" width="150px" height="150px">}}
 
-You can find the source code of this theme at <a href="https://github.com/SupunKavinda/jekyll-theme-leaf">Github</a>
+ID：`Y4er`
 
-(Change this by editing `about.md` file)
+团  队：[`ChaBug`](http://www.chabug.org/)
+
+Email：`admin[@]chabug.org`
+
+Github：  [Y4er](http://github.com/Y4er)
+Twitter：  [Y4er](https://twitter.com/Y4er_ChaBug)
+
+学历：专科 (计应 · 在读)
+
+</center>
