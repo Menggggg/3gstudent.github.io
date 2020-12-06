@@ -8,6 +8,7 @@ social:
   twitter: 
   github: mengggggg
 
-markdown: redcarpet
-redcarpet:
-  extensions: [with_toc_data]
+markdown: rdiscount
+rdiscount:
+    extensions:
+      - generate_toc
