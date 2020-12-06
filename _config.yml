@@ -7,8 +7,3 @@ permalink: :slug
 social:
   twitter: 
   github: mengggggg
-
-markdown: rdiscount
-rdiscount:
-    extensions:
-      - generate_toc
