@@ -11,7 +11,7 @@ layout: page
 
 #RedTeam #APT #CTF
 
-Email：`sinfvnction[@]sdsecurity.org.cn`
+Email：`huangm[@]sdsecurity.org.cn`
 
 TG:   [@SINFVNCTION](https://t.me/SINFVNCTION)
 
